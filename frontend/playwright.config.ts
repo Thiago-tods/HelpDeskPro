@@ -44,10 +44,12 @@ export default defineConfig({
       },
     },
     {
-      command: 'npm run dev',
+      // O E2E roda contra o build de produção servido pelo `vite preview`: sem recargas de dependências do servidor de
+      // desenvolvimento (que deixavam a primeira execução intermitente) e mais próximo do que será publicado.
+      command: 'npm run build && npx vite preview',
       url: `http://localhost:${WEB_PORT}`,
       reuseExistingServer: false,
-      timeout: 60_000,
+      timeout: 120_000,
       env: { VITE_PORT: String(WEB_PORT), API_URL: `http://localhost:${API_PORT}` },
     },
   ],

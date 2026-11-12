@@ -6,7 +6,7 @@ import { firstTicketId, openSession } from './support';
 //   $env:CAPTURE_SCREENSHOTS = '1'; .\scripts\e2e.ps1 screenshots
 test.skip(!process.env.CAPTURE_SCREENSHOTS, 'Somente para gerar screenshots da documentação.');
 
-const OUT = path.resolve(__dirname, '..', '..', 'docs', 'screenshots');
+const OUT = path.resolve(import.meta.dirname, '..', '..', 'docs', 'screenshots');
 const DESKTOP = { width: 1440, height: 900 };
 
 async function ready(page: Page) {

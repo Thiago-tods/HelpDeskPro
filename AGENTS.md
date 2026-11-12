@@ -1,4 +1,4 @@
-﻿# AGENTS.md
+# AGENTS.md
 
 Convenções para quem (pessoa ou agente de IA) altera este repositório. Visão geral do projeto: [README.md](README.md).
 
@@ -31,8 +31,8 @@ dotnet ef migrations add <Nome> --project backend\src\HelpDeskPro.Infrastructure
 3. Documentação em `docs/` atualizada quando comportamento, API ou segurança mudarem.
 
 ## Autoria Git (regra absoluta)
-- O proprietário do repositório é o **único autor** dos commits (nome `Thiago-Tods`; e-mail conforme configurado por ele).
-- **Proibido** adicionar `Co-authored-by` (Claude, Claude Code, Anthropic ou similares), trailers equivalentes, ou qualquer atribuição/contribuição a ferramentas de IA em commits, metadados ou arquivos.
+- O proprietário do repositório é o **único autor** dos commits (nome e e-mail conforme configurados por ele no Git).
+- **Proibido** adicionar `Co-authored-by`, trailers equivalentes ou qualquer atribuição/contribuição a ferramentas de IA (assistentes, agentes ou serviços) em commits, metadados ou arquivos.
 - Não alterar a identidade Git (global ou local).
 - Não criar commits, não fazer push, não adicionar remote, não reescrever histórico (amend, rebase, force push), não criar releases nem fazer deploy sem autorização expressa do proprietário.
 - Antes de qualquer commit autorizado: conferir `git config user.name`, `git config user.email`, `git status`, `git diff --check`, `git diff --cached`, trailers, autor e committer.

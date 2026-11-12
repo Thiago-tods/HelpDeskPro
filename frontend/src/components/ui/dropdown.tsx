@@ -1,4 +1,4 @@
-﻿import type { ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 import * as Menu from '@radix-ui/react-dropdown-menu';
 import { cn } from '@/lib/cn';
 

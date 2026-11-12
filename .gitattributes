@@ -1,0 +1,10 @@
+# Normaliza finais de linha no repositório (LF) e deixa o Git converter no checkout conforme o sistema.
+* text=auto
+
+# Binários
+*.png binary
+*.jpg binary
+*.ico binary
+
+# Scripts do PowerShell 5.1 leem melhor com CRLF
+*.ps1 text eol=crlf

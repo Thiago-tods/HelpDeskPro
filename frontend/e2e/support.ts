@@ -1,4 +1,4 @@
-﻿import { expect, request, type APIRequestContext, type Browser, type BrowserContext, type Page } from '@playwright/test';
+import { expect, request, type APIRequestContext, type Browser, type BrowserContext, type Page } from '@playwright/test';
 
 export const API = 'http://localhost:5090/api/v1';
 export const PASSWORD = process.env.E2E_PASSWORD!;

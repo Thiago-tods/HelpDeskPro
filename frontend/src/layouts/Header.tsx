@@ -1,4 +1,4 @@
-﻿import { Link, useMatches, useNavigate } from 'react-router-dom';
+import { Link, useMatches, useNavigate } from 'react-router-dom';
 import { Bell, ChevronRight, LogOut, Menu, Moon, Sun, User as UserIcon, Wifi, WifiOff } from 'lucide-react';
 import { useAuth, useCurrentUser } from '@/app/auth';
 import { useRealtimeStatus } from '@/app/realtime';

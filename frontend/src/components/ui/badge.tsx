@@ -1,4 +1,4 @@
-﻿import type { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { cn } from '@/lib/cn';
 
 export type Tone = 'neutral' | 'accent' | 'info' | 'success' | 'warning' | 'danger';

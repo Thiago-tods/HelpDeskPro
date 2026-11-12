@@ -1,0 +1,51 @@
+name: CI
+
+# Verificações que não dependem de PostgreSQL. Os testes de integração e o E2E exigem um banco local e
+# segredos de desenvolvimento (ver docs/TESTING.md), por isso rodam com scripts\test-all.ps1 na máquina do desenvolvedor.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-dotnet@0f4a354dd5547a28c70b7853dbd95d5b67886e73 # v6.1.0
+        with:
+          dotnet-version: 10.0.x
+      - name: Build
+        run: dotnet build backend/HelpDeskPro.sln --nologo
+      - name: Testes unitários
+        run: dotnet test backend/tests/HelpDeskPro.UnitTests --no-build --nologo
+
+  frontend:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - run: npm ci
+      - name: Tipos
+        run: npx tsc -b
+      - name: Lint
+        run: npm run lint
+      - name: Testes
+        run: npm test
+      - name: Build
+        run: npm run build

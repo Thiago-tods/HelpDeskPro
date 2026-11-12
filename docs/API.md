@@ -1,6 +1,6 @@
-﻿# API REST (`/api/v1`)
+# API REST (`/api/v1`)
 
-Swagger/OpenAPI: `GET /openapi/v1.json` (somente Development). Erros seguem Problem Details
+Swagger UI em `/swagger` e documento OpenAPI em `GET /openapi/v1.json` (somente Development, com esquema Bearer). Erros seguem Problem Details
 (400 validação, 401, 403, 404, 422 regra de negócio, 429, 500).
 Status trafegam como códigos: `NEW`, `IN_PROGRESS`, `WAITING_FOR_USER`, `RESOLVED`, `CLOSED`, `CANCELLED`.
 

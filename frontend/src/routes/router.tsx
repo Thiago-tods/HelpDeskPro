@@ -1,4 +1,4 @@
-﻿import type { ComponentType } from 'react';
+import type { ComponentType } from 'react';
 import { createBrowserRouter, type RouteObject } from 'react-router-dom';
 import { PageLoader } from '@/components/ui/states';
 import { AppLayout } from '@/layouts/AppLayout';

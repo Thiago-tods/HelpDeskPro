@@ -8,6 +8,8 @@ import { apiAs, openSession, openTicketViaUi, uniqueTitle, API } from './support
  *  8. Solicitante acompanha  9. Administrador consulta indicadores
  */
 test('fluxo completo: abertura, atendimento, resolução e indicadores', async ({ browser }) => {
+  // Três navegadores e várias esperas por tempo real: folga extra para máquinas carregadas (normalmente leva < 15 s).
+  test.setTimeout(180_000);
   const title = uniqueTitle('E2E fluxo');
   const publicReply = `Olá Ana, estamos verificando o seu caso. (${Date.now()})`;
   const internalNote = `NOTA-INTERNA-SIGILOSA-${Date.now()}`;

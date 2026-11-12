@@ -1,4 +1,4 @@
-﻿# Progresso
+# Progresso
 
 ## Fase 0 - Ambiente
 Concluída. .NET 10 SDK instalado via winget (10.0.404).
@@ -47,4 +47,4 @@ Revisao de qualidade: lint sem erros, dotnet format limpo, sem segredos/TODOs, a
 
 ## Estado final
 Todas as 9 fases concluidas. Pendencias conscientes: ver "Limitacoes conhecidas" no README e "Riscos residuais" em SECURITY.md.
-Nada foi commitado, nao ha repositorio Git inicializado nem remote (por regra do projeto).
+Repositorio Git inicializado com um commit inicial (branch main). Nenhum remote configurado e nenhum push realizado (por regra do projeto).

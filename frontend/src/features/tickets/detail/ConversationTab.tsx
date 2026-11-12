@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState, type FormEvent } from 'react';
+import { useEffect, useRef, useState, type FormEvent } from 'react';
 import { Lock, Send } from 'lucide-react';
 import { useCurrentUser } from '@/app/auth';
 import { Avatar, RoleBadge } from '@/components/common';

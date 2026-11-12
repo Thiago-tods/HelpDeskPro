@@ -1,4 +1,4 @@
-﻿# Banco de dados
+# Banco de dados
 
 PostgreSQL via EF Core 10 + Npgsql. IDs UUID, timestamps UTC (`timestamptz`), chaves estrangeiras com `Restrict` (sem exclusão em cascata de dados históricos).
 

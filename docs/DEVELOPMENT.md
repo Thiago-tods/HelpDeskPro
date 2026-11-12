@@ -1,4 +1,4 @@
-﻿# Desenvolvimento (Windows / PowerShell)
+# Desenvolvimento (Windows / PowerShell)
 
 ## Banco e seed
 ```powershell

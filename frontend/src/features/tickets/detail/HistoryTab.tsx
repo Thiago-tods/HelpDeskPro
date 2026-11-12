@@ -1,4 +1,4 @@
-﻿import { AlertTriangle, CheckCircle2, Circle, Flag, RotateCcw, UserCheck, Users, XCircle } from 'lucide-react';
+import { AlertTriangle, CheckCircle2, Circle, Flag, RotateCcw, UserCheck, Users, XCircle } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { EmptyState, ErrorState, SkeletonRows } from '@/components/ui/states';
 import { cn } from '@/lib/cn';

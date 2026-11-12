@@ -1,4 +1,4 @@
-﻿# Segurança
+# Segurança
 
 ## Autenticação
 - Senhas: hash do ASP.NET Core Identity (PBKDF2). Mínimo 10 caracteres. Bloqueio por 5 falhas (5 min).
@@ -15,7 +15,7 @@ Cookie SameSite=Lax + exigência do cabeçalho `X-Requested-With` em refresh, lo
 
 ## Autorização
 Política padrão exige usuário autenticado (fallback). Políticas `Admin` e `Staff` (ADMIN/AGENT) por papel.
-Regras por recurso (IDOR, notas internas) entram com os chamados (Fase 4/5).
+Regras por recurso (IDOR e notas internas) são aplicadas nos serviços; ver "Proteção IDOR e confidencialidade" abaixo.
 
 ## Outros controles
 - CORS restrito a `Cors:AllowedOrigins` (padrão `http://localhost:5173`), com credenciais.
@@ -66,3 +66,9 @@ Escopo: matriz de permissões de todos os endpoints, tokens, entrada hostil, cab
 - Dois refresh simultâneos com o mesmo token podem ambos funcionar (sem controle de concorrência).
 - Mudança de equipe de um agente só reflete nos grupos do SignalR após reconectar.
 - A validação do token consulta o banco a cada requisição: adequado para esta escala; em escala maior, usar cache curto.
+- **Antes de um deploy real:** habilitar redirecionamento HTTPS/HSTS e `ForwardedHeaders` (atrás de proxy o limite por IP enxergaria o IP do proxy);
+  restringir `AllowedHosts` (hoje `*`); considerar rate limit global (hoje só nos endpoints de autenticação).
+- Chamados não têm controle de concorrência otimista: duas alterações simultâneas no mesmo chamado seguem "a última grava".
+- O token do SignalR trafega na query string do WebSocket (limitação do navegador); evitar registrar URLs completas em proxies/logs.
+- Não há rotina de limpeza de refresh tokens expirados nem de notificações antigas.
+- O tempo de resposta do login pode diferir para e-mail inexistente (a mensagem de erro é idêntica).

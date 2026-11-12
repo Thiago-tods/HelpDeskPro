@@ -8,7 +8,7 @@
   - Aplica migrations, roda o seed, compila a API e chama o Playwright.
 .EXAMPLE
   .\scripts\e2e.ps1
-  .\scripts\e2e.ps1 -- --grep "fluxo"      # argumentos extras vão para o Playwright
+  .\scripts\e2e.ps1 --grep "fluxo"         # argumentos extras vão para o Playwright
 #>
 [CmdletBinding(PositionalBinding = $false)]
 param(

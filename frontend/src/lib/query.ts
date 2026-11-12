@@ -27,8 +27,11 @@ export function useApiMutation<TVars, TResult = unknown>(config: MutationConfig<
   const queryClient = useQueryClient();
   return useMutation<TResult, unknown, TVars>({
     mutationFn: (vars) => api<TResult>(config.path(vars), { method: config.method, body: config.body ? config.body(vars) : vars }),
-    onSuccess: async () => {
-      await Promise.all((config.invalidate ?? []).map((queryKey) => queryClient.invalidateQueries({ queryKey })));
+    onSuccess: () => {
+      // Não aguarda os refetches: a mutação termina quando o servidor confirma. Esperar a invalidação prendia botões
+      // em "carregando" sempre que um refetch demorava ou era cancelado por outro (ex.: evento em tempo real
+      // invalidando as mesmas chaves ao mesmo tempo). Os dados atualizam assim que os refetches terminam.
+      for (const queryKey of config.invalidate ?? []) void queryClient.invalidateQueries({ queryKey });
     },
   });
 }

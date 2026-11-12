@@ -1,4 +1,4 @@
-﻿import { expect, test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { PASSWORD, USERS, firstTicketId, openSession } from './support';
 
 test.describe('navegação por teclado', () => {

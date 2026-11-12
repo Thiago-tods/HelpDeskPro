@@ -1,4 +1,4 @@
-﻿import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { ApiError, api, messageOf, refreshSession, tokenStore } from './api';
 
 const session = (token: string) => ({

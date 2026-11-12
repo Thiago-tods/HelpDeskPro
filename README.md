@@ -1,4 +1,4 @@
-﻿# HelpDesk Pro
+# HelpDesk Pro
 
 Sistema de gerenciamento de chamados de suporte técnico para a empresa fictícia **Nexora Tecnologia**.
 Projeto de portfólio Full Stack: API .NET 10 com PostgreSQL, autenticação com refresh token rotativo, permissões por papel,
@@ -93,6 +93,16 @@ cd backend\src\HelpDeskPro.Api
 dotnet user-secrets list
 ```
 
+> **Os scripts `.ps1` foram bloqueados?** Em algumas instalações do Windows a política de execução do PowerShell impede rodar scripts
+> (erro "a execução de scripts foi desabilitada neste sistema"). Libere **apenas a sessão atual**, antes de executar os scripts:
+>
+> ```powershell
+> Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+> ```
+>
+> A configuração vale somente para essa janela do PowerShell e some ao fechá-la; não é necessário (nem recomendado) alterar a política global.
+> Se o arquivo veio de download/ZIP, `Unblock-File .\scripts\*.ps1` também resolve o aviso de "arquivo da internet".
+
 > Qual porta do PostgreSQL? Veja o que está instalado em `C:\Program Files\PostgreSQL\<versão>\data\postgresql.conf` (`port =`).
 
 ### Usuários de demonstração (todos com a mesma senha de demonstração)
@@ -134,6 +144,8 @@ Veja a tabela completa em [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md). Exemplo de
 74 de frontend e 45 E2E (fluxo completo com três usuários simultâneos, segurança, acessibilidade com axe nos dois temas, teclado e responsivo).
 Detalhes e limites em [docs/TESTING.md](docs/TESTING.md).
 
+O workflow de CI (.github/workflows/ci.yml) roda build, testes unitários do backend e tipos, lint, testes e build do frontend. Integração e E2E exigem PostgreSQL local e rodam com scripts\test-all.ps1.
+
 ## Estrutura do repositório
 
 ```
@@ -159,8 +171,12 @@ Com a API em Development: Swagger UI em `http://localhost:5080/swagger`.
 - Monitor de SLA e dashboards calculam em memória/SQL simples: adequados à escala de demonstração, não a milhões de chamados.
 - Testes E2E somente em Chromium; sem testes de carga.
 - Alterar o prazo de uma prioridade vale para chamados criados depois (os existentes mantêm o prazo da abertura).
-- Sem deploy nesta fase; o repositório ainda não possui licença definida.
+- Sem deploy nesta fase.
+
+## Licença
+
+Distribuído sob a licença **MIT**. Veja o arquivo [LICENSE](LICENSE).
 
 ## Autoria
 
-Projeto desenvolvido como peça de portfólio por **Thiago-Tods**.
+Projeto desenvolvido como peça de portfólio por **Thiago-tods** (Thiago Oliveira da Silva).

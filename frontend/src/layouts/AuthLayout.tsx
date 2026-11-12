@@ -1,4 +1,4 @@
-﻿import type { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { LifeBuoy, Moon, Sun } from 'lucide-react';
 import { useTheme } from '@/app/theme';
 import { IconButton } from '@/components/ui/button';
