@@ -1,0 +1,31 @@
+﻿# .NET
+bin/
+obj/
+*.user
+.vs/
+TestResults/
+*.log
+appsettings.*.local.json
+secrets.json
+
+# Node
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+
+# Env e segredos
+.env
+.env.*
+!.env.example
+
+# Uploads locais
+storage/
+uploads/
+
+# IDE / SO
+.idea/
+.vscode/
+Thumbs.db
